@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type {Metadata} from "next";
+import {Inter} from "next/font/google";
 import "./globals.css";
+import {Providers} from "@/app/providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({subsets: ["latin"]});
 
 export const metadata: Metadata = {
   title: "A Better Addon Manager",
@@ -10,13 +11,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-white dark:bg-slate-900`}>{children}</body>
+    <body className={`${inter.className} text-white dark:bg-slate-900`}>
+    <Providers>
+      {children}
+    </Providers>
+    </body>
     </html>
   );
 }

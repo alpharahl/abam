@@ -4,12 +4,18 @@ import {useEffect, useState} from "react";
 import {invoke} from "@tauri-apps/api/tauri";
 
 export default function Greet() {
-  const [greeting, setGreeting] = useState<string>('')
+  const [greeting, setGreeting] = useState<string[]>([])
   useEffect(() => {
-    invoke<string>('greet', {name: 'Next.js'})
+    invoke<string[]>('list_accounts', {name: 'Next.js'})
       .then(result => setGreeting(result))
       .catch(console.error)
   }, [])
 
-  return <div>{greeting}</div>
+  return <div>
+    {greeting.map(g => {
+      return <div key={g}>
+        {g}
+      </div>
+    })}
+  </div>
 }
