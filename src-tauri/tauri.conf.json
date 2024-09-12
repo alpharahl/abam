@@ -12,6 +12,13 @@
   },
   "tauri": {
     "allowlist": {
+      "fs": {
+        "scope": [
+          "C:/Program Files (x86)/World of Warcraft/_retail_/**"
+        ],
+        "readFile": true,
+        "readDir": true
+      },
       "all": false
     },
     "bundle": {
