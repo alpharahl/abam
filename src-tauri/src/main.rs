@@ -2,6 +2,7 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 use git2::Repository;
+use reqwest;
 
 #[tauri::command]
 fn load_auto_flood(){

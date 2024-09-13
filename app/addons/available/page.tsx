@@ -19,7 +19,7 @@ export default function Page() {
           ?.filter(addon => {
             return searchString === "" ? true : addon.name.toLowerCase().includes(searchString.toLowerCase())
           })
-          .map(addon => <AddonListEntry name={addon.name} key={addon.name}/>)}
+          .map(addon => <AddonListEntry name={addon.name} id={addon.id} key={addon.name}/>)}
       </div>
     </div>
   )
